@@ -1,77 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact form</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="mail style.css">
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Contact form</title>
+   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap"
+      rel="stylesheet">
+   <link rel="stylesheet" href="mail style.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>Contact Us</h1>
-        <p>We Will Contact Within 24 Hours </p>
+   <div class="container">
+      <h1>Contact Us</h1>
+      <p>We Will Contact Within 24 Hours </p>
 
-   
-        
-         <input  style="width: 400px; margin-top: 20px; margin-bottom: 20px;" type="text" name="name" placeholder="Name"
-         id="fullName">
+      <form onsubmit="SendMail(); reset(); return false">
+         <input style="width: 400px; margin-top: 20px; margin-bottom: 20px;" type="text" name="name" placeholder="Name"
+            id="fullName">
 
-     <input style="width: 400px; margin-top: 20px; margin-bottom: 20px;" type="email" name="Email"
-         placeholder="Email Address" id="email_id">
+         <input style="width: 400px; margin-top: 20px; margin-bottom: 20px;" type="email" name="Email"
+            placeholder="Email Address" id="email_id">
 
-     <textarea id="message" style="width: 400px; margin-top: 20px; margin-bottom: 20px;" name="message" cols="30" rows="5"
-         placeholder="Reason Of Call"></textarea>
-            <button 
-             style="display: block; margin: auto; margin-top: 20px; 
-            width: 250px; height: 50px; border-radius: 100px; cursor: pointer;" onclick="SendMail()">Send </button>
+            <input style="width: 400px; margin-top: 20px; margin-bottom: 20px;" type="tel" name="number"
+            placeholder="Phone Number" id="phone_num">
 
-          
+         <textarea id="message" style="width: 400px; margin-top: 20px; margin-bottom: 20px;" name="message" cols="30"
+            rows="5" placeholder="Reason Of Call"></textarea>
+         <button type="submit" style="display: block; margin: auto; margin-top: 20px; 
+            width: 250px; height: 50px; border-radius: 100px; cursor: pointer;">Send </button>
 
-        
-     
-        <p style="margin-top: 40px;"><a href="index.html">Back to Home Page</a></p>
-    </div>
+      </form>
 
-     <!-- script  start  -->
-   
+
+
+      <p style="margin-top: 40px;"><a href="index.html">Back to Home Page</a></p>
+   </div>
+
+   <!-- script  start  -->
+
 
    <script>
 
-    function SendMail() {
-       var templateParams = {
-          full_name: document.getElementById("fullName").value,
-          email_id: document.getElementById("email_id").value,
-          message: document.getElementById("message").value
-          
-       }
+      function SendMail() {
+         var templateParams = {
+            full_name: document.getElementById("fullName").value,
+            email_id: document.getElementById("email_id").value,
+            phone_num: document.getElementById("phone_num").value,
+            message: document.getElementById("message").value
 
-   
+         }
 
-       emailjs.send('service_efuewja', 'template_s66whga', templateParams)
-  .then(function(response) {
-     console.log('SUCCESS!', response.status, response.text);
-  }, function(error) {
-     console.log('FAILED...', error);
-  });
-    }
 
- </script>
 
- <!-- SCRIPT 2 -->
+         emailjs.send('service_efuewja', 'template_s66whga', templateParams)
+            .then(function (response) {
+               console.log('SUCCESS!', response.status, response.text);
+            }, function (error) {
+               console.log('FAILED...', error);
+            });
+      }
 
- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
- </script>
- <script type="text/javascript">
-    (function () {
-       emailjs.init("DDpg3rzfSl0P782En");
-    })();
- </script>
- <!-- SCRIPT 2 -->
+   </script>
 
- <!-- script end -->
+   <!-- SCRIPT 2 -->
+
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+   </script>
+   <script type="text/javascript">
+      (function () {
+         emailjs.init("DDpg3rzfSl0P782En");
+      })();
+   </script>
+   <!-- SCRIPT 2 -->
+
+   <!-- script end -->
 </body>
+
 </html>
-
-
