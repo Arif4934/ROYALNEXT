@@ -15,7 +15,7 @@
    <div class="container">
       <h2>ＲＯＹＡＬＮ Ξ ＸＴ</h2>
       <h1>Contact Us</h1>
-      
+     
       <p>We Will Contact Within 24 Hours </p>
 
       <form onsubmit="SendMail(); reset(); return false">
@@ -25,7 +25,7 @@
          <input type="email" name="email" id="email_id">
          <label for="phone">Phone Number:</label>
          <input type="tel" name="NUMBER" id="phone_num">
-         <label for="message" >Message</label>
+         <label for="message">Message</label>
          <textarea id="message" name="message" cols="30" rows="5"></textarea>
          <input type="submit" value="Send">
 
@@ -36,17 +36,18 @@
       <p style="margin-top: 40px;"><a href="index.html">Back to Home Page</a></p>
    </div>
 
-   <!--  -->
-    <!-- logo -->
-  <div style="background-color: rgb(9 9 9)">
+
+   <!-- logo -->
+   <div style="background-color: rgb(9 9 9)">
 
 
-   <img style="display: block; margin: auto; width: 200px; " src="logo_image/RNL.png" alt="ＲＯＹＡＬＮ Ξ ＸＴ">
+      <img style="display: block; margin: auto; width: 200px; " src="logo_image/RNL.png" alt="ＲＯＹＡＬＮ Ξ ＸＴ">
 
- </div>
- <p style="background-color: #000000; text-align: center;">05-01-2022</p>
- <!-- logo -->
-   <!--  -->
+   </div>
+   <p style="background-color: #000000; text-align: center;">05-01-2022</p>
+  
+   <!-- logo -->
+
 
    <!-- script  start  -->
 
@@ -66,9 +67,9 @@
 
          emailjs.send('service_efuewja', 'template_s66whga', templateParams)
             .then(function (response) {
-               console.log('SUCCESS!', response.status, response.text);
+              alert('MESSAGE SENT SUCCESSFULLY , Click Back to Home Page', response.status, response.text);
             }, function (error) {
-               console.log('FAILED...', error);
+               alert('check your connection', error);
             });
       }
 
