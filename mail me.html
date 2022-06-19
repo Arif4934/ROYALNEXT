@@ -9,13 +9,14 @@
    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap"
       rel="stylesheet">
    <link rel="stylesheet" href="mail style.css">
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
    <div class="container">
       <h2>ＲＯＹＡＬＮ Ξ ＸＴ</h2>
       <h1>Contact Us</h1>
-     
+
       <p>We Will Contact Within 24 Hours </p>
 
       <form onsubmit="SendMail(); reset(); return false">
@@ -45,7 +46,7 @@
 
    </div>
    <p style="background-color: #000000; text-align: center;">05-01-2022</p>
-  
+
    <!-- logo -->
 
 
@@ -67,9 +68,16 @@
 
          emailjs.send('service_efuewja', 'template_s66whga', templateParams)
             .then(function (response) {
-              alert('MESSAGE SENT SUCCESSFULLY , Click Back to Home Page', response.status, response.text);
+
+               swal("Good job!", "Form Submited Successfully", "success");
+
+
+
+               swal('good job', response.status, response.text);
             }, function (error) {
-               alert('check your connection', error);
+               swal("Error ", "Form Not Submited", "error");
+
+               swal('check your connection', error);
             });
       }
 
